@@ -1,6 +1,25 @@
 <?php
 
 
+    echo('<pre>');
+    print_r($_GET);
+    echo('</pre>');
+
+    if ($_GET){
+
+    $nome = $_GET['nome'];
+    $preco = $_GET['preco'];
+    $descricao = $_GET['descricao'];
+
+}
+
+echo('<pre>');
+print_r($nome);
+print_r($preco);
+print_r($descricao);
+echo('</pre>');
+
+
 ?>
 
 <!doctype html>
@@ -13,38 +32,33 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/cadastroProduto.css">
   </head>
   <body>
 
     <header class="topo">
         tela produto
     </header>
+
     <div class="formulario container"> 
         <form action="" method="get">
-        <span class="titulo">Nome</span>
-        <input class='form-control col-sm-6' type="text" name="nome" id="nome">
+            <span class="titulo">Nome</span>
+            <input class='form-control col-lg-6 campos' type="text" name="nome" id="nome">
 
-        <span class="titulo">Preço</span>
-        <input class='form-control col-sm-6' type="number" name="preco" id="preco">
+            <span class="titulo">Preço</span>
+            <input class='form-control col-lg-2 campos' type="number" name="preco" id="preco">
+            
+            <span class="titulo">Descrição produto</span>
+            <div class="form-group">
+            <label for=""></label>
+            <textarea class="form-control col-sm-6 campos" name="descricao" id="descricao" rows="3"></textarea>
+            </div>
+            <span class="titulo">Carregar foto</span>
+            <input class='form-control col-lg-6 campos' type="file" name="file" id="nome">
+            <button type="submit" class="btn btn-primary">Submit</button>    
         
-        <span class="titulo">Descrição produto</span>
-        <div class="form-group">
-          <label for=""></label>
-          <textarea class="form-control col-sm-8" name="descricao" id="descricao" rows="3"></textarea>
-        </div>
-
-
-    
-    </div>
-
-
-
-
-
-   
-      
-      </form>
-
+        </form>
+    </div> 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
