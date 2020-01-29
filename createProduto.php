@@ -4,21 +4,41 @@
     echo('<pre>');
     print_r($_GET);
     echo('</pre>');
+    
+    $erro = false;
 
-    if ($_GET){
 
     $nome = $_GET['nome'];
-    $preco = $_GET['preco'];
     $descricao = $_GET['descricao'];
+    $preco = $_GET['preco'];
 
-}
+    if (!isset($_GET) || empty($_GET)){
+        $erro = 'Nada foi enviado';
+    }
+    
+    if(!isset(empty($nome) && !$erro)){
+        $erro = 'campo nome esta em branco.';
+    }
 
-echo('<pre>');
-print_r($nome);
-print_r($preco);
-print_r($descricao);
-echo('</pre>');
+    if(is_numeric($preco)){
+        $erro = 'campos esta incorreto digite apenas numeros';
+    }
+    
+  
 
+
+
+
+
+
+// echo('<pre>');
+// print_r($nome);
+// print_r($descricao);
+// print_r($preco);
+// echo('</pre>');
+
+
+require("./includes/menu.php");
 
 ?>
 
@@ -36,6 +56,7 @@ echo('</pre>');
   </head>
   <body>
 
+    
     <header class="topo">
         tela produto
     </header>
@@ -46,7 +67,7 @@ echo('</pre>');
             <input class='form-control col-lg-6 campos' type="text" name="nome" id="nome">
 
             <span class="titulo">Preço</span>
-            <input class='form-control col-lg-2 campos' type="number" name="preco" id="preco">
+            <input class='form-control col-lg-2 campos' type="text" name="preco" id="preco">
             
             <span class="titulo">Descrição produto</span>
             <div class="form-group">
